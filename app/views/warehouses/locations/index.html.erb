@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Locations</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+  <tr>
+    <th>Floor</th>
+    <th>Section</th>
+    <th>Rack</th>
+    <th>Number</th>
+    <th>Availability</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @locations.each do |item| %>
+
+      <tr>
+        <td><%= item.floor %></td>
+        <td><%= item.section %></td>
+        <td><%= item.rack %></td>
+        <td><%= item.number %></td>
+        <td><%= item.availability %></td>
+        <td><%= link_to 'Edit', edit_warehouse_location_path(@warehouse, item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New location", new_warehouse_location_path %>

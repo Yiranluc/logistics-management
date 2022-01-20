@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Inventory items</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+  <tr>
+    <th>Name</th>
+    <th>UPC</th>
+    <th>Quantity</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Date of arrival</th>
+    <th>Description</th>
+    <th>Location</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @inventory_items.each do |item| %>
+
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.upc_code %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.category %></td>
+        <td><%= item.status %></td>
+        <td><%= item.date_of_arrival %></td>
+        <td><%= item.description %></td>
+        <td><%= Warehouse.find(Location.find(item.locations_id).warehouse_id).name+'-'+Location.find(item.locations_id).floor+'-'+Location.find(item.locations_id).section++'-'
+                +Location.find(item.locations_id).rack+'-'+Location.find(item.locations_id).number.to_s %></td>
+        <td><%= link_to 'Edit', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+<!--        <td><%#= link_to 'Edit', item, method: :edit, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>-->
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New inventory item", new_inventory_item_path %>

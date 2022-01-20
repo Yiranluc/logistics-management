@@ -1,0 +1,37 @@
+<%= form_with(model: [@warehouse, @location], local: true) do |form| %>
+  <% if @location.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+        <% @location.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :floor, class:"form-control", placeholder:"Floor" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :section, class:"form-control", placeholder:"Section" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :rack, class:"form-control", placeholder:"Rack" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :number, class:"form-control", placeholder:"Number" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.select(:availability, options_for_select([['Available', true], ['Not Available', false]]))%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
