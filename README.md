@@ -1,8 +1,11 @@
 ## Features:
 1. CRUD of 'Inventory_items'.
 2. Ability to create warehouses/locations and assign inventory to specific locations, including:
+
    a) CRUD of 'Warehouses'
+   
    b) CRUD of 'Locations'
+   
    c) Each 'Warehouse' contains many 'Locations' to store items.
 3. Simple frontend (views) to test the CRUD functions of the items/warehouses/locations.
 
