@@ -1,4 +1,4 @@
-## Features of this web application:
+## Features:
 1. CRUD of 'Inventory_items'.
 2. Ability to create warehouses/locations and assign inventory to specific locations, including:
    a) CRUD of 'Warehouses'
@@ -17,6 +17,8 @@ I used Ruby on Rails to build the application. Here are the steps that I took to
 - Install Rails `7.0.1` using `gem`
 
 Once you get the above successfully downloaded, you can download my repository to your local computer and cd into its directory. Run `rails server` and the application starts to running! You can then go to `localhost:3000` (by default) to check out the web application. 
+
+The first page you see is the page for showing up all the inventory_items. And you can CRUD new warehouses and locations by going to `locahost:3000/warehouses/new` and `locahost:3000/warehouses/#identifier/locations/new`.
 
 ## Future Improvements
 1. Due to time constraints, I did not write tests for the application. Since our application contains views (frontend in some senses), I manually tested it functions. But I should defintely write tests in the future for scalability concerns.
